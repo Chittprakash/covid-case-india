@@ -42,3 +42,6 @@ https://api.covid19india.org/states_daily.json
 <img src="https://raw.githubusercontent.com/Chittprakash/covid-case-india/main/Screen%20Shot%202021-04-29%20at%2010.04.37%20PM.png">
 <img src="https://github.com/Chittprakash/covid-case-india/blob/main/IMG_1890.PNG?raw=true">
 
+## Contact
+- Chittprakash Agnihotri
+- chittprakash@gmail.com
