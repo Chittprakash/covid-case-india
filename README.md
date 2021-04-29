@@ -31,6 +31,14 @@ https://api.covid19india.org/states_daily.json
       }
     ];
 
+# How to setup
+- Install scriptable app ( https://apps.apple.com/us/app/scriptable/id1405459188 )
+- Copy the code : covid_data_india.js
+- Createt a new script and pase the code 
+- In iOS add a new Scriptable Widget and choose the created script.
+
+# Widget ScreenShots
+
 <img src="https://raw.githubusercontent.com/Chittprakash/covid-case-india/main/Screen%20Shot%202021-04-29%20at%2010.04.37%20PM.png">
 <img src="https://github.com/Chittprakash/covid-case-india/blob/main/IMG_1890.PNG?raw=true">
 
