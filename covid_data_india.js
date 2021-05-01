@@ -323,7 +323,7 @@ async function createWidget() {
   let caseToday = await getDailyCovidData(new String(todayDate),state.state);
   //let caseToday = await getDailyCovidData("2021-04-24","up"); // HardCoded to check variation for other dates || Comparision
   
-  const level = calculateColor(2);
+  const level = calculateColor(4);
   
   const updatedAt = new Date().toLocaleTimeString([], {
         hour: "numeric",
@@ -341,6 +341,11 @@ async function createWidget() {
   gradient.locations = [0.0, 1];
     
   const listWidget = new ListWidget();
+  
+  let date = new Date()
+  date.setHours(date.getHours() + 3);
+  listWidget.refreshAfterDate = date;
+
   listWidget.backgroundGradient = gradient;
   
   const arrow = getArrowTrend(caseYesterday, caseToday);
@@ -380,11 +385,11 @@ async function createWidget() {
       const confirmedContent = confirmedCase.addText("Today "+formatedNumber(confirmedCaseData));
       var arrowConfirmed = getArrowTrend(Number(caseDayBeforeYesterday.confirmed), Number(caseYesterday.confirmed));
       console.log("Confimed Cases not published for today; Displaying confirmedCaseData = "+Number(caseDayBeforeYesterday.confirmed)+" - "+Number(caseYesterday.confirmed)+" = "+formatedNumber(confirmedCaseData));
-      confirmedContent.font = Font.semiboldSystemFont(13);
+      confirmedContent.font = Font.semiboldSystemFont(12);
   } else {
       const confirmedContent = confirmedCase.addText("Today "+formatedNumber(confirmedCaseData));
       var arrowConfirmed = getArrowTrend(Math.abs(Number(caseDayBeforeYesterday.confirmed) - Number(caseYesterday.confirmed)), Number(confirmedCaseData));
-      confirmedContent.font = Font.semiboldSystemFont(13);
+      confirmedContent.font = Font.semiboldSystemFont(12);
   }
   
   var arrowColorNumber = getArrowColor(arrowConfirmed, "Confirmed");
@@ -399,6 +404,7 @@ async function createWidget() {
   confirmedTrend.resizable = false;
   confirmedTrend.tintColor = arrowtextColor;
   confirmedTrend.imageSize = new Size(46, 16);
+  confirmedCase.centerAlignContent();
   //confirmedContent.textColor = textColor;
   //confirmedCase.minimumScaleFactor = 0.50;
 
@@ -411,12 +417,12 @@ async function createWidget() {
        const recoveredContent = recoveredCase.addText("Healed "+formatedNumber(recoveredCaseData));
        var arrowRecovered = getArrowTrend(Number(caseDayBeforeYesterday.recovered), Number(caseYesterday.recovered));
        console.log("Recovered Cases not published for today; Displaying recoveredCaseData = "+Number(caseDayBeforeYesterday.recovered)+" - "+Number(caseYesterday.recovered)+" = "+formatedNumber(recoveredCaseData));
-      recoveredContent.font = Font.semiboldSystemFont(13);
+      recoveredContent.font = Font.semiboldSystemFont(12);
   }
   else {
       const recoveredContent = recoveredCase.addText("Healed "+formatedNumber(recoveredCaseData));
       var arrowRecovered = getArrowTrend(Number(Math.abs(Number(caseDayBeforeYesterday.recovered) - Number(caseYesterday.recovered))), Number(recoveredCaseData));
-      recoveredContent.font = Font.semiboldSystemFont(13);
+      recoveredContent.font = Font.semiboldSystemFont(12);
   }
   
   arrowColorNumber = getArrowColor(arrowRecovered, "Recovered");
@@ -430,6 +436,7 @@ async function createWidget() {
   recoveredTrend.resizable = false;
   recoveredTrend.tintColor = arrowtextColor;
   recoveredTrend.imageSize = new Size(30, 16);
+  recoveredCase.centerAlignContent();
   
 
   listWidget.addSpacer();
