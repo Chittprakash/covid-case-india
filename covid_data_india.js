@@ -1,5 +1,8 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
+// icon-color: orange; icon-glyph: magic;
+// Variables used by Scriptable.
+// These must be at the very top of the file. Do not edit.
 // icon-color: green; icon-glyph: magic;
 /*https://api.covid19india.org*/
 const state_wise_date = "https://api.covid19india.org/state_district_wise.json";
